@@ -2,7 +2,7 @@ module Cyber.CommandParser where
 
 import qualified Data.Text.Lazy as T
 
-data CommandT = Show | Add | Rm | Mv | Help
+data CommandT = Install | Show | Add | Rm | Mv | Help
   deriving Show
 
 data Arg = EntryPath { eName :: String, eVersion :: String } | VersionPath String deriving Show
@@ -21,6 +21,7 @@ toEntryPath entryPathString =
 parseCommand :: [String] -> Maybe Command
 parseCommand [] = Nothing
 parseCommand inputs = case (T.unpack . T.toLower . T.pack) (head inputs) of
+  "install" -> Just $ Command Install []
   "show" -> Just $ Command Show args
   "add"  -> Just $ Command Add  args
   "rm"   -> Just $ Command Rm   args

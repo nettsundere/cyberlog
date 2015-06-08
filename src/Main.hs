@@ -11,6 +11,8 @@ import Data.List
 
 usageMessage :: String
 usageMessage = "Usage: [COMMAND] [arguments..] where COMMAND is: \n \
+  \cyberlog install \
+  \ \n Prepare this directory to use Cyberlog \n\n \
   \cyberlog add  \"version\" \
   \ \n Add new version \n\n \
   \cyberlog add  \"version/entry-name\" \
@@ -37,6 +39,11 @@ relativeToAbsolute :: FilePath -> IO FilePath
 relativeToAbsolute relativePath =
   getCurrentDirectory >>= \currentDirectory ->
     return $ currentDirectory </> cyberlogSubDirectory </> relativePath
+
+initCyberlog :: IO ()
+initCyberlog =
+  getCurrentDirectory >>= \currentDirectory ->
+    createDirectory (currentDirectory </> cyberlogSubDirectory)
 
 sortedFilesInDirectory :: FilePath -> IO [FilePath]
 sortedFilesInDirectory path =
@@ -94,6 +101,8 @@ mvEntry ver ent ver' ent' =
 perform :: Command -> IO ()
 
 perform (Command Help _) = putStrLn usageMessage
+
+perform (Command Install _) = initCyberlog
 
 perform (Command Show []) =
   getCurrentVersions >>= \versions ->
