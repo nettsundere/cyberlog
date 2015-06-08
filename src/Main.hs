@@ -22,13 +22,13 @@ usageMessage = "Usage: [COMMAND] [arguments..] where COMMAND is: \n \
   \cyberlog rm   \"version/entry-name\" \
   \ \n Remove an entry from the version \n\n \
   \cyberlog rm   \"version\"\
-  \ \n Remove entire version from TANGELOG \n\n \
+  \ \n Remove entire version from CHANGELOG \n\n \
   \cyberlog show \"version/entry-name\" \
   \ \n Show single entry \n\n \
   \cyberlog show \"version\" \
   \ \n Show version entries \n\n \
   \cyberlog show \
-  \ \n Show entire TANGELOG \n\n \
+  \ \n Show entire CHANGELOG \n\n \
   \cyberlog help \
   \ \n Show this HELP \n"
 
