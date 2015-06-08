@@ -1,0 +1,23 @@
+name:                cyberlog
+version:             0.1.0.0
+synopsis:            Tool to write and operate on CHANGELOG entries without being struck by MERGE conflicts
+-- description:
+homepage:            https://github.com/nettsundere/cyberlog
+license:             BSD3
+license-file:        LICENSE
+author:              Vladimir nettsundere KISELEV
+maintainer:          nettsundere@gmail.com
+copyright:           Vladimir nettsundere KISELEV
+category:            Development
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+executable cyberlog
+  ghc-options:       -Wall -W -Werror
+  main-is:           Main.hs
+  -- other-modules:
+  -- other-extensions:
+  build-depends:       base, text, directory, filepath
+  hs-source-dirs:      src
+  default-language:    Haskell2010
