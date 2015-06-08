@@ -54,7 +54,7 @@ getCurrentVersions :: IO [FilePath]
 getCurrentVersions =
   relativeToAbsolute "" >>= \path ->
     sortedFilesInDirectory path >>= \files ->
-      filterM (\x -> doesDirectoryExist (path </> x)) files
+      filterM (\x -> doesDirectoryExist (path </> x)) (reverse files)
 
 getEntries :: String -> IO [FilePath]
 getEntries version =
